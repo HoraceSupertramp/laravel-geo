@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@home')->name('welcome');
+Route::resource('countries', 'CountryController');
