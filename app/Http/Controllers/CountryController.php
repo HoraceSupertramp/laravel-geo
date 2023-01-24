@@ -25,7 +25,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        return view('countries.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $country = new Country();
+        $country->name = $data['country'];
+        $country->continent = $data['continent'];
+        $country->region = $data['region'];
+        $country->surface_area = $data['surface_area'];
+        $country->population = $data['population'];
+        $country->life_expectancy = $data['life_expectancy'];
+        $country->local_name = $data['local_name'];
+        $country->government_form = $data['government_form'];
+        $country->save();
+        return redirect()->route('countries.show',['country' => $country]);
     }
 
     /**
