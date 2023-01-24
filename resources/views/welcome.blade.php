@@ -83,11 +83,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-                <ul>
-                @foreach($countries as $country)
-                    <li>{{ $country->name }}</li>
-                @endforeach
-                </ul>
+                <h3>Benvenuto in GEO</h3>
             </div>
         </div>
     </body>
