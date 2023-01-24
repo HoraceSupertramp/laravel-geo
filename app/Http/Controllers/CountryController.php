@@ -47,6 +47,7 @@ class CountryController extends Controller
         $country->local_name = $data['local_name'];
         $country->government_form = $data['government_form'];
         $country->save();
+
         return redirect()->route('countries.show',['country' => $country]);
     }
 
@@ -69,7 +70,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        //
+        return view('countries.edit', compact('country'));
     }
 
     /**
@@ -81,7 +82,19 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-        //
+        $data = $request->all();
+
+        $country->name = $data['country'];
+        $country->continent = $data['continent'];
+        $country->region = $data['region'];
+        $country->surface_area = $data['surface_area'];
+        $country->population = $data['population'];
+        $country->life_expectancy = $data['life_expectancy'];
+        $country->local_name = $data['local_name'];
+        $country->government_form = $data['government_form'];
+        $country->update();
+
+        return redirect()->route('countries.show', ['country' => $country]);
     }
 
     /**
