@@ -48,7 +48,7 @@ class CountryController extends Controller
         $country->government_form = $data['government_form'];
         $country->save();
 
-        return redirect()->route('countries.show',['country' => $country]);
+        return redirect()->route('countries.show', ['country' => $country]);
     }
 
     /**
@@ -59,7 +59,11 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        return view('countries.show', compact('country'));
+        $cities = $country->cities()->get();
+        return view('countries.show', [
+            'country' => $country,
+            'cities' => $cities,
+        ]);
     }
 
     /**
