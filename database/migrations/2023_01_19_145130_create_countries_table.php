@@ -14,6 +14,7 @@ class CreateCountriesTable extends Migration
     public function up()
     {
         Schema::create('countries', function (Blueprint $table) {
+            $table->id();
             $table->string('code', 3)->unique();
             $table->string('name');
             $table->string('continent');
@@ -23,7 +24,6 @@ class CreateCountriesTable extends Migration
             $table->unsignedTinyInteger('life_expectancy')->nullable();
             $table->string('local_name');
             $table->string('government_form');
-            $table->primary('code');
         });
     }
 
