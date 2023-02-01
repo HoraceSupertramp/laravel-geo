@@ -12,4 +12,8 @@ class Country extends Model
     {
         return $this->hasMany('App\City');
     }
+
+    public function languages(){
+        return $this->belongsToMany('App\Language');
+    }
 }

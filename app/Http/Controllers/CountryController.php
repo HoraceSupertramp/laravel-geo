@@ -60,9 +60,12 @@ class CountryController extends Controller
     public function show(Country $country)
     {
         $cities = $country->cities()->get();
+        $languages = $country->languages()->get();
+
         return view('countries.show', [
             'country' => $country,
             'cities' => $cities,
+            'languages' => $languages,
         ]);
     }
 
